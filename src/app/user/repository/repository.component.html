@@ -1,0 +1,81 @@
+<section class="max-w-4xl mx-auto">
+  <div class="flex justify-between my-3">
+
+  <button class="text-white bg-zinc-800 rounded-full p-1">
+
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+    </svg>
+  </button>
+
+<div >
+
+  <span class="text-white mr-2">Per Page:</span> <select #RepoCountSelect  (change)="onChange(parseInt(RepoCountSelect.value))" >
+  <option *ngFor="let i of PerRepoOptions">{{i}}</option>
+</select>
+</div>
+
+    <button class="text-white bg-zinc-800 rounded-full p-1">
+
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </button>
+  </div>
+
+<ng-container *ngIf="RepoData!=null">
+
+
+  <ng-container *ngIf="RepoData.isLoading">
+    <div class="grid grid-cols-2 gap-2">
+    <ng-container *ngFor="let i of Array.from({
+    length: 6
+    })" >
+      <div class="h-40 w-full bg-white animate-pulse rounded-md"></div>
+    </ng-container>
+
+
+
+  </div>
+  </ng-container>
+  <ng-container *ngIf="!RepoData.isLoading">
+    <div class="grid grid-cols-2 gap-2">
+      <ng-container *ngFor="let repo of RepoData.data" >
+        <div class="border-2 border-gray-200 bg-zinc-800 text-white rounded-sm p-4 m-4">
+          <h2 class="text-xl font-bold">{{repo.name}}</h2>
+          <p>{{repo.description}}</p>
+          <a href="{{repo.html_url}}" class="text-blue-500">View on GitHub</a>
+        </div>
+      </ng-container>
+    </div>
+
+  </ng-container>
+</ng-container>
+</section>
+
+<!--<div *ngIf="RepoData!=null">-->
+<!--  <div *ngIf="RepoData().isLoading">-->
+<!--    <div class="text-2xl font-bold">Loading...</div>-->
+<!--  </div>-->
+<!--  <div *ngIf="RepoData().isError">-->
+<!--    <div class="text-2xl font-bold">Error: {{RepoData().error}}</div>-->
+<!--  </div>-->
+<!--  <div *ngIf="RepoData().isSuccess">-->
+<!--    <div class="max-w-4xl w-full  mx-auto grid-cols-2">-->
+<!--      <div *ngFor="let repo of RepoData().data" class="border-2 border-gray-200 p-4 m-4">-->
+<!--        <h2 class="text-xl font-bold">{{repo.name}}</h2>-->
+<!--        <p>{{repo.description}}</p>-->
+<!--        <a href="{{repo.html_url}}" class="text-blue-500">View on GitHub</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</div>-->
+
+<!--<div class="max-w-4xl w-full  mx-auto grid-cols-2">-->
+<!--  <div *ngFor="let repo of RepoData" class="border-2 border-gray-200 p-4 m-4">-->
+<!--    <h2 class="text-xl font-bold">{{repo.name}}</h2>-->
+<!--    <p>{{repo.description}}</p>-->
+<!--    <a href="{{repo.html_url}}" class="text-blue-500">View on GitHub</a>-->
+<!--  </div>-->
+<!--</div>-->
