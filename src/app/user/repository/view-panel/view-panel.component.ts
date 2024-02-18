@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RepositoryType } from '../../../user-type';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-view-panel',
