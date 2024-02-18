@@ -1,5 +1,28 @@
-<div class="grid h-screen place-items-center">
-  <div class="font-bold text-3xl">
-    Fyle Internship Challenge
-  </div>
+<div class="flex min-h-screen w-full bg-zinc-900 flex-col">
+  <header>
+    <nav class="h-10  border-b flex items-center justify-center ">
+      <div class="max-w-4xl flex justify-between  w-full text-white">
+        <span>
+          Github User Search
+        </span>
+        <div class="relative">
+
+        <input [(ngModel)]="InputValue" #input_search class="p-1 px-2 pr-10 w-80 bg-zinc-800 rounded-sm">
+          <button (click)="OnClickFn()" class="ml-2 p-1 absolute right-2 top-1/2 -translate-y-1/2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+
+
+  <main class="flex-grow ">
+
+  </main>
+
 </div>
