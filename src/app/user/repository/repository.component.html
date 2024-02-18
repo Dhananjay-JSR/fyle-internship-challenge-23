@@ -20,14 +20,14 @@
   </div>
   <ng-container *ngIf="RepoData!=null">
     <ng-container *ngIf="RepoData.isLoading">
-      <div class="grid xl:grid-cols-2 gap-2">
+      <div class="grid xl:grid-cols-2 gap-4">
         <div *ngFor="let i of Array.from({
     length: 6
     })" class="h-40 w-full bg-white animate-pulse rounded-md"></div>
       </div>
     </ng-container>
     <ng-container *ngIf="!RepoData.isLoading">
-      <div class="grid xl:grid-cols-2 gap-2">
+      <div class="grid xl:grid-cols-2 gap-4 pb-4">
         <ng-container *ngFor="let repo of RepoData.data">
           <app-view-panel [repo]="repo"></app-view-panel>
         </ng-container>

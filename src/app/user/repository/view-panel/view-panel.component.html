@@ -1,9 +1,9 @@
-<div class="border-2 h-40 border-gray-200 bg-zinc-800 text-white flex flex-col rounded-sm p-4 m-4">
+<div class="border-2 h-full w-full border-gray-200 bg-zinc-800 text-white flex flex-col rounded-md p-4 m-4">
   <h2 id="repo_name" class="text-xl font-bold">{{ repo.name }}</h2>
   <p id="repo_desc">{{ repo.description }}</p>
   <a id="repo_url" href="{{repo.html_url}}" class="bg-blue-500 text-white block py-1 px-2 rounded-md w-fit">View on
     GitHub</a>
-  <div class="flex gap-2 mt-auto ">
+  <div class="flex gap-2 mt-auto flex-wrap">
     <div id="repo_tags" *ngFor="let topic of repo.topics">
       <div class="bg-zinc-600 text-white select-none px-2 py-1 rounded-sm">{{ topic }}</div>
     </div>
