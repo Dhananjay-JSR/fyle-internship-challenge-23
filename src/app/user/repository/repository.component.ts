@@ -15,7 +15,7 @@ import {Result} from "@ngneat/query/lib/types";
   templateUrl: './repository.component.html',
   styleUrls: ['./repository.component.scss']
 })
-export class RepositoryComponent  implements OnInit, OnChanges{
+export class RepositoryComponent  implements OnInit{
 
   @Input() githubUsername: string = '';
 
@@ -32,12 +32,6 @@ export class RepositoryComponent  implements OnInit, OnChanges{
   ngOnInit() {
     this.fetchRepositoryData()
   }
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes["githubUsername"]||changes["PerRepoCount"]||changes["CurrentPage"]){
-      // this.fetchRepositoryData()
-    }
-  }
-
   fetchRepositoryData(): void {
     this.apiService.getRespository(this.githubUsername, this.CurrentPage, this.PerRepoCount).result$.subscribe(({
       next: (data)=>{
@@ -46,50 +40,28 @@ export class RepositoryComponent  implements OnInit, OnChanges{
     }))
   }
 
-
-
-  // ngOnChanges(changes: SimpleChanges) {
-  //   if (changes["githubUsername"]||changes["PerRepoCount"]||changes["CurrentPage"]){
-  //     console.log(this.PerRepoCount)
-  //
-  //   }
-  //
-  // }
-
-
-  //
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   if (changes['githubUsername']) {
-  //     this.RepoData = this.apiService.getRespository(this.githubUsername, this.CurrentPage, this.PerRepoCount)
-  //     }
-  // }
-
-
   onChange(RepoCount: number): void {
     this.PerRepoCount = RepoCount;
-    // this.fetchData()
-    // this.fetchRepositoryData(); // Update repository data when PerRepoCount changes
+    this.fetchRepositoryData();
+
   }
 
   IncreasePage(): void {
+    console.log("Called")
     this.CurrentPage += 1;
-    // this.fetchRepositoryData(); // Update repository data when page is increased
+    this.fetchRepositoryData();
+
+
   }
 
   DecreasePage(): void {
-    this.CurrentPage -= 1;
-    // this.fetchRepositoryData(); // Update repository data when page is decreased
-  }
+    if (this.CurrentPage > 1)
+    {
+      this.CurrentPage -= 1;
+      this.fetchRepositoryData();
 
-
-
-  //
-  // ngOnChanges(changes: SimpleChanges) {
-  //   if (changes["githubUsername"]||changes["PerRepoCount"]||changes["CurrentPage"]){
-  //   this.RepoData = this.apiService.getRespository(this.githubUsername,this.CurrentPage,this.PerRepoCount).result
-  //   }
-  // }
-
+    }
+     }
 
   protected readonly parseInt = parseInt;
   protected readonly Math = Math;

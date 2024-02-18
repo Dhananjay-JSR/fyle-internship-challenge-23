@@ -7,12 +7,14 @@ import {FormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { UserComponentComponent } from './user/user-component/user-component.component';
 import { RepositoryComponent } from './user/repository/repository.component';
+import { ViewPanelComponent } from './user/repository/view-panel/view-panel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponentComponent,
-    RepositoryComponent
+    RepositoryComponent,
+    ViewPanelComponent
   ],
     imports: [
         BrowserModule,

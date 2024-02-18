@@ -1,0 +1,10 @@
+<div class="border-2 h-40 border-gray-200 bg-zinc-800 text-white flex flex-col rounded-sm p-4 m-4">
+  <h2 class="text-xl font-bold">{{ repo.name }}</h2>
+  <p>{{ repo.description }}</p>
+  <a href="{{repo.html_url}}" class="text-blue-500">View on GitHub</a>
+  <div class="flex gap-2 mt-auto ">
+    <div *ngFor="let topic of repo.topics">
+      <div class="bg-zinc-600 text-white select-none px-2 py-1 rounded-sm">{{ topic }}</div>
+    </div>
+  </div>
+</div>
